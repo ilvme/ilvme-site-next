@@ -1,0 +1,36 @@
+---
+
+import { getCollection, render } from 'astro:content';
+import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('essays');
+	return posts.map(post => ({
+		params: { slug: post.id }, props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+
+<MarkdownPostLayout frontmatter={post.data}>
+	<Content />
+
+<div class="fixed right-8 top-28 pr-6 max-w-[20em] max-h-[calc(95vh-10rem)] overflow-y-auto max-xl:hidden">
+	<div class="space-y-1 font-light">
+		{headings.map((heading) => (
+			<div class={`${heading.depth > 2 ? 'ml-4' : ''}`}>
+				<span class="text-rose-700">#</span>
+				<a
+					href={`#${heading.slug}`}
+					class="hover:text-blue-800 break-words whitespace-normal"
+				>
+					{heading.text}
+				</a>
+			</div>
+		))}
+	</div>
+</div>
+</MarkdownPostLayout>

@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import Header from "../components/Header.astro";
+import BackToTop from "../components/BackToTop.astro";
+---
+
+<!doctype html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>林深时觉寒的博客</title>
+	</head>
+	<body class="bg-red-50">
+		<main class="m-auto max-w-[768px] pt-16 space-y-4 text-[14px]">
+			<Header/>
+
+			<slot />
+
+			<footer class="text-gray-500 text-sm">© 2022 林深时觉寒</footer>
+		</main>
+		<BackToTop />
+	</body>
+</html>
