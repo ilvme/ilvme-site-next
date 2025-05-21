@@ -12,6 +12,6 @@ html{
     scroll-behavior: smooth;
     background-color: #fdfcf5;
 }
-html .dark{
+html [data-theme=dark]{
     background-color: #111;
 }
