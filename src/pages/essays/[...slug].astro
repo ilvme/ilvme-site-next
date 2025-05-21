@@ -2,6 +2,7 @@
 
 import { getCollection, render } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import Prose from "../../components/Prose.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection('essays');
@@ -15,8 +16,10 @@ const { Content, headings } = await render(post);
 ---
 
 
-<MarkdownPostLayout frontmatter={post.data}>
-	<Content />
+<MarkdownPostLayout frontmatter={post.data} cl>
+	<Prose class="bg-blue-50">
+		<Content />
+	</Prose>
 
 <div class="fixed right-8 top-28 pr-6 max-w-[20em] max-h-[calc(95vh-10rem)] overflow-y-auto max-xl:hidden">
 	<div class="space-y-1 font-light">
