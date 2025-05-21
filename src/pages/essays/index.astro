@@ -10,7 +10,6 @@ console.log(allPosts)
 
 <EssaysLayout>
   <h1>随笔归档</h1>
-  <p>This is where I will post about my journey learning Astro.</p>
   <div>
       {allPosts.map((post) =><BlogPost url={`/essays/${post.id}/`} post={post} title={post.data.title} />)}
   </div>
