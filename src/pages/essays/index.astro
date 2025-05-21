@@ -1,16 +1,28 @@
 ---
-
 import EssaysLayout from "../../layouts/EssaysLayout.astro";
 import {getCollection} from "astro:content";
 import BlogPost from "../../components/essays/BlogPost.astro";
 
 const allPosts = await getCollection("essays");
-console.log(allPosts)
+
+const groupByYear = Object.entries(allPosts.reduce((acc, post) => {
+    const year = new Date(post.data.publishTime).getFullYear();
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(post);
+    return acc;
+}, {})).sort(([a], [b]) => b - a);
+
+console.log(allPosts[1])
 ---
 
 <EssaysLayout>
-  <h1>随笔归档</h1>
-  <div>
-      {allPosts.map((post) =><BlogPost url={`/essays/${post.id}/`} post={post} title={post.data.title} />)}
-  </div>
+    <div class="space-y-6">
+        {groupByYear.map(([year, posts]) => (
+                <div class="space-y-3">
+                    <h2 class="text-lg font-bold text-rose-600">{year}</h2>
+                    {posts.map((post) =>
+                            <BlogPost url={`/essays/${post.id}/`} postMeta={post.data}/>)}
+                </div>
+        ))}
+    </div>
 </EssaysLayout>
