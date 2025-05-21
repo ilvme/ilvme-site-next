@@ -2,6 +2,9 @@
 import '../styles/global.css';
 import Header from "../components/Header.astro";
 import BackToTop from "../components/BackToTop.astro";
+import Footer from "../components/Footer.astro";
+
+const headerHidden = Astro.props.headerHidden ?? false;
 ---
 
 <!doctype html>
@@ -15,11 +18,11 @@ import BackToTop from "../components/BackToTop.astro";
 	</head>
 	<body class="">
 		<main class="m-auto max-w-[768px] pt-16 space-y-4 text-[14px]">
-			<Header/>
+			{ !headerHidden && <Header /> }
 
 			<slot />
 
-			<footer class="text-gray-500 text-sm">&copy; 2025 林深时觉寒</footer>
+			<Footer />
 		</main>
 		<BackToTop />
 	</body>

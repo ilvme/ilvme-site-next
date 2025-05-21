@@ -1,44 +1,26 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
+import RightTop from "../components/RightTop.astro";
+const {frontmatter, headings} = Astro.props;
 ---
 
-<BaseLayout>
-  <h1 class="text-xl font-bold text-rose-700">{frontmatter.title}</h1>
-  <p></p>
+<BaseLayout headerHidden={true}>
+    <h1 class="text-xl font-bold text-rose-700">{frontmatter.title}</h1>
+    <p></p>
 
-  <div>
-      <span>{frontmatter.author}</span>
-      <span>{frontmatter.pubDate}</span>
-      <span>
+    <div>
+        <span>{frontmatter.author}</span>
+        <span>{frontmatter.pubDate}</span>
+        <span>
         {
             frontmatter.tags.map((tag: string) => (
-                <a class="" href={`/tags/${tag}`}> #{tag}</a>
+                    <a class="" href={`/tags/${tag}`}> #{tag}</a>
             ))
         }
       </span>
-  </div>
-  <!--<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />-->
+    </div>
+    <slot/>
 
 
-  <slot />
+    <RightTop headings={headings}/>
 </BaseLayout>
-<style>
-    a {
-        color: #00539f;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: 0.5em;
-        padding: 0.5em 1em;
-        font-size: 1.15em;
-        background-color: #f8fcfd;
-    }
-</style>

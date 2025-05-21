@@ -12,6 +12,7 @@
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.7.13",
     "dayjs": "^1.11.13",
+    "lucide-astro": "^0.511.0",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
