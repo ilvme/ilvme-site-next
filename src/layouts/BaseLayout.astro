@@ -16,7 +16,7 @@ const headerHidden = Astro.props.headerHidden ?? false;
 		<meta name="generator" content={Astro.generator} />
 		<title>林深时觉寒的博客</title>
 	</head>
-	<body class="">
+	<body >
 		<main class="m-auto max-w-[768px] pt-16 space-y-4 text-[14px]">
 			{ !headerHidden && <Header /> }
 
@@ -24,6 +24,7 @@ const headerHidden = Astro.props.headerHidden ?? false;
 
 			<Footer />
 		</main>
+
 		<BackToTop />
 	</body>
 </html>
