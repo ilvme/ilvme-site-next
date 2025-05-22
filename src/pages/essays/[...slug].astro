@@ -3,7 +3,6 @@
 import { getCollection, render } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
 import Prose from "../../components/Prose.astro";
-import AwesomeToc from "../../components/AwesomeToc.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection('essays');

@@ -1,17 +1,14 @@
 @import "tailwindcss";
+@import "./variables.css";
+@import "./prose.css";
+
 @plugin '@tailwindcss/typography';
-
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
 
 .prose{
     max-width: 768px;
 }
-
 html{
-    scroll-behavior: smooth;
-    background-color: #fdfcf5;
-}
-html [data-theme=dark]{
-    background-color: #111;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }

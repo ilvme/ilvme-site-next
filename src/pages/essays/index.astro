@@ -1,7 +1,7 @@
 ---
-import EssaysLayout from "../../layouts/EssaysLayout.astro";
 import {getCollection} from "astro:content";
 import BlogPost from "../../components/essays/BlogPost.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const allPosts = await getCollection("essays");
 
@@ -15,7 +15,7 @@ const groupByYear = Object.entries(allPosts.reduce((acc, post) => {
 console.log(allPosts[1])
 ---
 
-<EssaysLayout>
+<BaseLayout>
     <div class="space-y-6">
         {groupByYear.map(([year, posts]) => (
                 <div class="space-y-3">
@@ -25,4 +25,4 @@ console.log(allPosts[1])
                 </div>
         ))}
     </div>
-</EssaysLayout>
+</BaseLayout>

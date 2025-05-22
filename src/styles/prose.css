@@ -1,0 +1,36 @@
+/*.prose h2, h3, h4 {*/
+/*    color: var(--link-color);*/
+/*    font-weight: normal;*/
+/*}*/
+
+/*.prose h2{*/
+/*    font-size: 1rem*/
+/*}*/
+
+/*.prose h3,h4{*/
+/*    font-size: 1rem*/
+/*}*/
+
+/*.prose h2::before {*/
+/*    content: "#";*/
+/*    color: var(--text-color-primary);*/
+/*    margin-right: 0.5rem;*/
+/*}*/
+
+/*.prose h3::before {*/
+/*    content: "##";*/
+/*    color: var(--text-color-primary);*/
+/*    margin-right: 0.5rem;*/
+/*}*/
+
+/*!*.prose p, code{*!*/
+/*!*    font-size: .8rem;*!*/
+/*!*    color: var(--text-color);*!*/
+/*!*}*!*/
+
+/*!*.prose p code {*!*/
+/*!*    background: var(--color-code-inline-bg);*!*/
+/*!*    color: var(--color-code-inline);*!*/
+/*!*    padding: 1px 5px;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*}*!*/
