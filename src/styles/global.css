@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "./variables.css";
-@import "./prose.css";
 
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -9,7 +8,9 @@
   max-width: 768px;
 }
 html {
-  font-family: "LXGW WenKai", sans-serif;
+  font-family:
+    "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 16px;
   background-color: var(--bg-color);

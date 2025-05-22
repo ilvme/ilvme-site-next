@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import "../styles/prose.css";
 import RightTop from "../components/RightTop.astro";
 import { SiteConfig } from "../ilvme.config";
 import { formatDate } from "../utils/support";
@@ -12,7 +13,7 @@ const { frontmatter, headings } = Astro.props;
   <div class="flex items-center gap-2 mb-10">
     <span class="font-bold">{frontmatter.author || SiteConfig.author}</span>
 
-    <span class="font-bold">{formatDate(frontmatter.publishTime)}</span>
+    <span class="">{formatDate(frontmatter.publishTime)}</span>
 
     {
       frontmatter.tags.map((tag: string) => (
@@ -29,7 +30,7 @@ const { frontmatter, headings } = Astro.props;
     }
   </div>
 
-  <slot />
+  <slot class="prose" />
 
   <RightTop headings={headings} />
 </BaseLayout>

@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
+import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,5 +15,14 @@ export default defineConfig({
       // https://shiki.style/themes
       // theme: "monokai",
     },
+
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          content: { type: "text", value: " 🔗" },
+        },
+      ],
+    ],
   },
 });

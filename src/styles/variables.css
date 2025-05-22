@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #fdfcf3;
+  --bg-color: #fdfbf3;
   --text-color: #222;
   --text-color-primary: #b80029;
   --text-color-secondary: #555;
@@ -12,10 +12,10 @@
 
 .dark {
   --bg-color: #000;
-  --text-color: #fff;
+  --text-color: #cdcdcd;
   --text-color-primary: #b80029;
   --text-color-secondary: #aaa;
-  --link-color: #65847e;
+  --link-color: #83b1a8;
 
   /*代码相关*/
   --color-code-inline: #ff496b;
