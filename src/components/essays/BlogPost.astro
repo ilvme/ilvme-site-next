@@ -1,15 +1,12 @@
 ---
-import {formatDate} from "../../utils/support";
-const {postMeta, url} = Astro.props
-console.log(url)
+import { formatDate } from "../../utils/support";
+const { postMeta, url } = Astro.props;
+console.log(url);
 ---
 
 <div class="flex gap-6 mb-1">
-    <span class="">{formatDate(postMeta.publishTime)}</span>
-    <a class=" underline" href={url}>{postMeta.title}</a>
+  <span class="">{formatDate(postMeta.publishTime)}</span>
+  <a class="underline hover:text-[var(--link-color)]" href={url}
+    >{postMeta.title}</a
+  >
 </div>
-
-
-
-
-

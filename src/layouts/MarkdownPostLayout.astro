@@ -1,28 +1,49 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import RightTop from "../components/RightTop.astro";
-const {frontmatter, headings} = Astro.props;
+import { SiteConfig } from "../ilvme.config";
+import { User, Calendar, Tag } from "lucide-astro";
+import { formatDate } from "../utils/support";
+const { frontmatter, headings } = Astro.props;
 ---
 
 <BaseLayout headerHidden={true}>
-    <h1 class="text-xl font-bold text-rose-700">{frontmatter.title}</h1>
-    <p></p>
+  <h1 class="text-xl font-bold text-rose-700">{frontmatter.title}</h1>
+  <p></p>
 
-    <div>
-        <span>{frontmatter.author}</span>
-        <span>{frontmatter.pubDate}</span>
-        <span>
-        {
-            frontmatter.tags.map((tag: string) => (
-                    <a class="" href={`/tags/${tag}`}> #{tag}</a>
-            ))
-        }
-      </span>
-    </div>
+  <div class="flex items-center gap-3">
+    <span class="font-bold flex items-center gap-0.5">
+      <User size="14" />
+      <span>{frontmatter.author || SiteConfig.author}</span>
+    </span>
 
+    <span class="font-bold flex items-center">
+      <Calendar size="14" />
+      {formatDate(frontmatter.publishTime)}
+    </span>
 
-    <slot/>
+    <span class="font-bold flex items-center">
+      {
+        frontmatter.categories.map((category: string) => (
+          <a class="" href={`/categories/${category}`}>
+            {category}
+          </a>
+        ))
+      }
+    </span>
+    {
+      frontmatter.tags.map((tag: string) => (
+        <span class="font-bold flex items-center">
+          <Tag size="14" />
+          <a class="" href={`/tags/${tag}`}>
+            {tag}
+          </a>
+        </span>
+      ))
+    }
+  </div>
 
+  <slot />
 
-    <RightTop headings={headings}/>
+  <RightTop headings={headings} />
 </BaseLayout>

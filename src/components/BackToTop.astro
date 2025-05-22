@@ -1,38 +1,50 @@
 ---
+
 ---
+
 <button
   id="back-to-top"
   class="fixed bottom-8 right-8 bg-red-500 text-white p-2 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-red-600"
   aria-label="回到顶部"
 >
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 15l7-7 7 7"></path>
   </svg>
 </button>
 
 <script>
-  const backToTopButton = document.getElementById('back-to-top');
+  const backToTopButton = document.getElementById("back-to-top");
 
   // 滚动到顶部
   function scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   }
 
   // 显示/隐藏按钮
   function toggleBackToTopButton() {
     if (window.scrollY > 300) {
-      backToTopButton?.classList.remove('opacity-0');
-      backToTopButton?.classList.add('opacity-100');
+      backToTopButton?.classList.remove("opacity-0");
+      backToTopButton?.classList.add("opacity-100");
     } else {
-      backToTopButton?.classList.remove('opacity-100');
-      backToTopButton?.classList.add('opacity-0');
+      backToTopButton?.classList.remove("opacity-100");
+      backToTopButton?.classList.add("opacity-0");
     }
   }
 
   // 添加事件监听器
-  backToTopButton?.addEventListener('click', scrollToTop);
-  window.addEventListener('scroll', toggleBackToTopButton);
+  backToTopButton?.addEventListener("click", scrollToTop);
+  window.addEventListener("scroll", toggleBackToTopButton);
 </script>

@@ -1,22 +1,21 @@
 ---
-import {SiteConfig} from "../ilvme.config";
+import { SiteConfig } from "../ilvme.config";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="flex gap-1.5">
-  <img src="https://ilvme-github-io.vercel.app/images/logo.png" width="50px"/>
+  <img src="https://ilvme-github-io.vercel.app/images/logo.png" width="50px" />
   <main>
     <h1 class="text-2xl font-bold">{SiteConfig.title}</h1>
 
-    <div class="flex gap-5 text-rose-600 font-light text-base">
-      <a href="/">主页</a>
-      <a href="/essays/">随笔</a>
-      <a href="/words/">说说</a>
-      <a href="/notes/">技术笔记</a>
-      <a href="/about/">关于</a>
+    <div class="flex gap-5 text-rose-600 font-light text-sm h-auto">
+      <a href="/" class="pr-4 border-r border-dotted">主页</a>
+      <a href="/essays/" class="pr-4 border-r border-dotted">随笔</a>
+      <a href="/words/" class="pr-4 border-r border-dotted">说说</a>
+      <a href="/notes/" class="pr-4 border-r border-dotted">技术笔记</a>
+      <a href="/about/" class="pr-4 border-r border-dotted">关于</a>
       <a href="/friends/">友链</a>
-      <ThemeToggle/>
+      <ThemeToggle />
     </div>
-
   </main>
 </header>

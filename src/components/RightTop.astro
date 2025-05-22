@@ -3,12 +3,12 @@ import AwesomeToc from "./AwesomeToc.astro";
 import LightNav from "./LightNav.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
-const {headings} = Astro.props;
+const { headings } = Astro.props;
 ---
 
 <div class="absolute top-4 right-20 max-md:hidden flex">
-    <LightNav/>
-    <ThemeToggle />
+  <LightNav />
+  <ThemeToggle />
 </div>
 
-<AwesomeToc headings={headings}/>
+<AwesomeToc headings={headings} />

@@ -10,9 +10,10 @@ categories: [Mess]
 
 {% note tip %}
 **💡 优化建议：**
+
 - 使用缓存策略
 - 压缩静态资源
-{% endnote %}
+  {% endnote %}
 
 {% note danger %}
 **危险操作：**  
@@ -21,6 +22,7 @@ categories: [Mess]
 
 {% note warning %}
 **优化建议：**
+
 - 使用缓存策略
 - 压缩静态资源
   {% endnote %}
@@ -30,8 +32,8 @@ categories: [Mess]
 此操作不可逆，请谨慎执行！
 {% endnote %}
 
-
 ## 图表测试
+
 {% chart 80% 300 %}
 {
 type: 'line',
@@ -60,12 +62,15 @@ text: 'Chart.js Line Chart'
 - [x] 香蕉
 
 ## 测试图片
+
 哈哈，你看到我了
 
 哈哈，你看到我了哈哈，你看到我了哈哈，你看到我了哈哈，你看到我了哈哈，你看到我了哈哈，你看到我了哈哈，你看到我了
 
 ## 测试隐藏文字
+
 ### 1
+
 <details>
 <summary>点击查看详情</summary>
 <p>

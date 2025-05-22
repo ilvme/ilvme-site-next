@@ -13,4 +13,4 @@ tags: ["astro", "blogging"]
 categories: []
 ---
 
-Welcome to my _new blog_ about learning Astro! 
+Welcome to my _new blog_ about learning Astro!
