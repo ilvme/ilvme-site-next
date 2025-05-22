@@ -5,6 +5,17 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { formatTime } from "../../utils/support";
 
 const allPosts = await getCollection("essays");
+
+const res = await fetch('http://8.140.229.190:5230/api/v1/memo', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer '
+  }
+})
+
+const data = await res.json()
+console.log('data: ', data)
 ---
 
 <BaseLayout>
