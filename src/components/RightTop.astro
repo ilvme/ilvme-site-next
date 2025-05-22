@@ -6,9 +6,11 @@ import ThemeToggle from "./ThemeToggle.astro";
 const { headings } = Astro.props;
 ---
 
-<div class="absolute top-4 right-20 max-md:hidden flex">
+<div class="absolute top-4 right-20 max-md:hidden flex gap-2.5 items-center">
   <LightNav />
+
   <ThemeToggle />
 </div>
 
-<AwesomeToc headings={headings} />
+{headings.length > 0 && <AwesomeToc headings={headings} />}
+<!--<AwesomeToc headings={headings} />-->
