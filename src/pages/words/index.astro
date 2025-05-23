@@ -2,30 +2,37 @@
 import { getCollection } from "astro:content";
 import BlogPost from "../../components/essays/BlogPost.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { formatTime } from "../../utils/support";
+import { formatPast, formatTime } from "../../utils/support";
+import { marked } from "marked";
+import Prose from "../../components/Prose.astro";
+import { SiteConfig } from "../../ilvme.config";
 
 const allPosts = await getCollection("essays");
 
-const res = await fetch('http://8.140.229.190:5230/api/v1/memo', {
-  method: 'GET',
+const res = await fetch("http://8.140.229.190:5230/api/v1/memos", {
+  method: "GET",
   headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer '
-  }
-})
+    "Content-Type": "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InYxIiwidHlwIjoiSldUIn0.eyJuYW1lIjoiaWx2bWUiLCJpc3MiOiJtZW1vcyIsInN1YiI6IjEiLCJhdWQiOlsidXNlci5hY2Nlc3MtdG9rZW4iXSwiaWF0IjoxNzQ3OTEzNTY3fQ.GR_QcdNXszHR0oWbB4fpBzuUYeESl5ZmTGwNz4-CV04",
+  },
+});
 
-const data = await res.json()
-console.log('data: ', data)
+const data = await res.json();
+const { memos, nextPageToken } = data;
+console.log("数据: ", memos[1]);
 ---
 
 <BaseLayout>
   <div class="space-y-6">
     {
-      allPosts.map((post) => (
-        <div class="flex flex-col gap-2">
-          <div class="border">
-            <p>{post.data.title}</p>
-            <p>发布于：{formatTime(post.data.publishTime)}</p>
+      memos.map((memo) => (
+        <div class="flex flex-col gap-2 ">
+          <div class="border rounded-2xl p-4">
+            <p class="text-sm text-gray-400">{formatPast(memo.createTime)}</p>
+            <Prose>
+              <article set:html={marked(memo.content)} />
+            </Prose>
           </div>
         </div>
       ))
