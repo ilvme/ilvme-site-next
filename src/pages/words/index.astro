@@ -9,7 +9,7 @@ import { SiteConfig } from "../../ilvme.config";
 
 const allPosts = await getCollection("essays");
 
-const res = await fetch("http://8.140.229.190:5230/api/v1/memos", {
+const res = await fetch(`${import.meta.env.MEMOS_API_URL}/memos`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
