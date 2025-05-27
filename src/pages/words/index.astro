@@ -13,8 +13,7 @@ const res = await fetch("http://8.140.229.190:5230/api/v1/memos", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InYxIiwidHlwIjoiSldUIn0.eyJuYW1lIjoiaWx2bWUiLCJpc3MiOiJtZW1vcyIsInN1YiI6IjEiLCJhdWQiOlsidXNlci5hY2Nlc3MtdG9rZW4iXSwiaWF0IjoxNzQ3OTEzNTY3fQ.GR_QcdNXszHR0oWbB4fpBzuUYeESl5ZmTGwNz4-CV04",
+    Authorization: `Bearer ${import.meta.env.MEMOS_TOKEN}`,
   },
 });
 
